@@ -1,6 +1,7 @@
 import pygame
 import random
 import sys
+import time
 
 # Initialize Pygame
 pygame.init()
@@ -93,6 +94,7 @@ def game_loop():
     x_change = 0
     y_change = 0
     score = 0
+    start_time = time.time()  # Record start time
 
     while not game_over:
         for event in pygame.event.get():
@@ -144,6 +146,11 @@ def game_loop():
 
         # Draw snake
         display_snake(snake_list)
+
+        # Display live score and time
+        play_time = round(time.time() - start_time)
+        display_text("Score: " + str(score), white, 10, 10)
+        display_text("Time: " + str(play_time) + "s", white, 510, 10)
 
         # Update display
         pygame.display.update()
