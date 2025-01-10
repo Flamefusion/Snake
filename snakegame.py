@@ -46,16 +46,16 @@ while not game_over:
         if event.type == pygame.QUIT:
             game_over = True
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_LEFT:
+            if event.key == pygame.K_LEFT and x_change != snake_size:
                 x_change = -snake_size
                 y_change = 0
-            elif event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_RIGHT and x_change != -snake_size:
                 x_change = snake_size
                 y_change = 0
-            elif event.key == pygame.K_UP:
+            elif event.key == pygame.K_UP and y_change != snake_size:
                 y_change = -snake_size
                 x_change = 0
-            elif event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN and y_change != -snake_size:
                 y_change = snake_size
                 x_change = 0
 
