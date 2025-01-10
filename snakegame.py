@@ -41,10 +41,11 @@ def game_start_screen():
                 waiting = False
 
 # Game over screen
-def game_over_screen(score):
+def game_over_screen(score, play_time):
     window.fill(black)
     display_text("Game Over", red, 250, 100)
     display_text("Your Score: " + str(score), white, 220, 150)
+    display_text("Play Time: " + str(play_time) + " seconds", white, 180, 180)
     display_text("Press any key to restart", white, 150, 200)
     pygame.display.update()
     waiting = True
@@ -165,7 +166,7 @@ def game_loop():
         # Control game speed
         clock.tick(snake_speed)
 
-    game_over_screen(score)
+    game_over_screen(score, play_time)
 
 # Start the game
 game_start_screen()
